@@ -1,0 +1,92 @@
+﻿/* ================ Metadaten =============== */
+class header
+{
+   gameType = COOP;
+   minPlayers = 1;
+   maxPlayers = 78;
+};
+
+/* ================ Ladebildschirm =============== */
+onLoadName = "Tac Day 34";
+author = "TFW Florian";
+OnLoadMission = "";
+Respawn = "BASE";
+respawnTemplates[]  = {"Base"};
+respawnDelay    = 300;
+respawnOnStart    = 0;
+DisabledAI = true;
+loadScreen = "images\loadscreen.jpg";
+overviewPicture = "";
+enableDebugConsole = 1;
+
+
+/* ================ Includes =============== */
+#include "taw_vd\GUI.h"
+
+class CfgFunctions
+{
+	#include "taw_vd\CfgFunctions.hpp"
+	#include "functions\CfgFunctions.hpp"
+};
+
+class ACE_Settings
+{
+	#include "settings\CfgACE.hpp"
+};
+
+
+/*================== Prameter ============ */
+
+class Params
+{
+
+	class param_loadout
+	{
+		title="Loadout Fraktion";
+		values[] = {0,1,2,3,4,5};
+		texts[] = {"Vanilla Nato","US Army OCP","US Army UCP","BW Flecktarn","BW Tropentarn","US Marine Woodland"};
+		default = 0;
+	};
+
+		class param_radiochatter
+	{
+		title="Radio Chatter";
+		values[] = {0,1};
+		texts[] = {"Nein","Ja"};
+		default = 0;
+	};
+
+};
+
+
+
+class CfgDebriefing
+{
+	class End2
+	{
+		title = "Mission Erfolgreich";
+		subtitle = "";
+		description = "Toll Leistung ..";
+		pictureBackground = "images\loadscreen.jpg";
+		picture = "b_inf";
+		pictureColor[] = {0.0,0.3,0.6,1};
+	};
+};
+
+class CfgMusic
+{
+	tracks[]={};
+
+	class intro
+	{
+		name = "";
+		sound[] = {"\music\intro.ogg", db+0, 1.0};
+	};
+
+	class end
+	{
+		name = "";
+		sound[] = {"\music\end.ogg", db-5, 1.0};
+	};
+
+};
